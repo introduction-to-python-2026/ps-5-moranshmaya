@@ -16,6 +16,7 @@ def split_before_uppercases(formula):
     
     return elements_lst
 
+
 def split_at_digit(formula):
     for char_index, char in enumerate(formula):
         if char.isdigit():
