@@ -1,11 +1,44 @@
-
-
-
 def split_before_uppercases(formula):
-    pass  # replace the pass with your code
+    if not formula:
+        return []
+
+    start = 0
+    split_formula: List[str] = []
+
+    for i in range(1, len(formula)):
+        ch = formula[i]
+
+        if ch.isupper():
+            split_formula.append(formula[start:i])
+            start = i
+
+    split_formula.append(formula[start:])
+    return split_formula
 
 def split_at_digit(formula):
-    pass  # replace the pass with your code
+    digit_location = None
+
+    for i, ch in enumerate(formula):
+        if ch.isdigit():
+            digit_location = i
+            break
+
+    # אם אין בכלל ספרה – מחזירים את המחרוזת כמו שהיא והמספר 1
+    if digit_location is None:
+        return formula, 1
+
+    # למצוא את סוף רצף הספרות
+    j = digit_location
+    while j < len(formula) and formula[j].isdigit():
+        j += 1
+
+    prefix = formula[:digit_location]
+    number_str = formula[digit_location:j]
+
+    # כאן number_str תמיד רק ספרות
+    number_part = int(number_str)
+    return prefix, number_part
+
 
 def count_atoms_in_molecule(molecular_formula):
     """Takes a molecular formula (string) and returns a dictionary of atom counts.  
