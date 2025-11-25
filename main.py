@@ -1,5 +1,5 @@
-from string_utils import parse_chemical_reactions, count_atoms_in_reatcion
-from equation_utils import build_equations ,my_solve
+import string_utils 
+import equation_utils 
 
 
 
